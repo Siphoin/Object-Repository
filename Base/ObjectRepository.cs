@@ -16,7 +16,7 @@ namespace ObjectRepositories
             {
                 repository = new ObjectRepository<T>();
                 _repositories.Add(type, repository);
-                return repository as IObjectRepository<T>;  
+                return repository as IObjectRepository<T>;
             }
             else
             {
@@ -42,18 +42,13 @@ namespace ObjectRepositories
 
         public void AddObject(T obj)
         {
-            if (!_objects.Contains(obj))
-            {
-                _objects.Add(obj);
-            }
+            _objects.Add(obj);
+            
         }
 
         public void RemoveObject(T obj)
         {
-            if (_objects.Contains(obj))
-            {
-                _objects.Remove(obj);
-            }
+            _objects.Remove(obj);
         }
     }
 
