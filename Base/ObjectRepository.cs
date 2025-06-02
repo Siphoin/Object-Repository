@@ -26,7 +26,7 @@ namespace ObjectRepositories
 
         }
     }
-   internal sealed class ObjectRepository<T> : ObjectRepository, IEnumerable<T>, IObjectRepository<T>
+    internal sealed class ObjectRepository<T> : ObjectRepository, IEnumerable<T>, IObjectRepository<T>
     {
         private readonly List<T> _objects = new List<T>();
 
