@@ -56,7 +56,7 @@ Extension Methods
 The system includes a useful extension method:
 
 ``` csharp
-public static IEnumerable<T> FindObjectsOfTypeOnRepository<T>(this Component component)
+public static IEnumerable<T> FindObjectsOfTypeOnRepository<T>(this MonoBehaviour _)
 {
     return ObjectRepository.GetInstance<T>();
 }
