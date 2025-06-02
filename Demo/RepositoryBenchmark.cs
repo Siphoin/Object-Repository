@@ -10,13 +10,15 @@ namespace ObjectRepositories
         [SerializeField] private int _testObjectsCount = 1000;
         [SerializeField] private int _testIterations = 1000;
 
+        [SerializeField] private Unit _unit;
+
         private void Start()
         {
             // Создаем тестовые объекты
             for (int i = 0; i < _testObjectsCount; i++)
             {
-                var go = new GameObject($"Unit_{i}");
-                go.AddComponent<Unit>();
+                var unit = Instantiate(_unit);
+                unit.name = $"Unit{i}";
             }
 
             // Тестируем стандартный метод Unity

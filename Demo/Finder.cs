@@ -11,7 +11,10 @@ namespace ObjectRepositories
             if (Input.GetKeyUp(KeyCode.V))
             {
                 var units = this.FindObjectsOfTypeOnRepository<Unit>();
-                Debug.Log(units.Count());
+                foreach (var unit in units)
+                {
+                    Debug.Log(unit.name);
+                }
             }
         }
     }
