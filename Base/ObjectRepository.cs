@@ -18,7 +18,6 @@ namespace ObjectRepositories
                 _repositories.Add(type, repository);
                 return repository as IObjectRepository<T>;  
             }
-
             else
             {
                 return repository as IObjectRepository<T>;
