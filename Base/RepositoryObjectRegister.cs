@@ -1,19 +1,37 @@
+using System;
 using UnityEngine;
 
 namespace ObjectRepositories
 {
-    public class RepositoryObjectRegister : MonoBehaviour
+    public class RepositoryObjectRegister<T> : MonoBehaviour where T : Component
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        private T _component;
+
+        private IObjectRepository<T> Repository => ObjectRepository.GetInstance<T>();
+
+        private T Component
         {
-        
+            get
+            {
+                if (_component is null)
+                {
+                    _component = GetComponent<T>();
+                }
+            
+                return _component;
+            }
+
+        }
+        protected virtual void OnEnable()
+        {
+            Repository.AddObject(Component);
         }
 
-        // Update is called once per frame
-        void Update()
+        protected virtual void OnDisable()
         {
-        
+            Repository.RemoveObject(Component);
         }
+
+        
     }
 }
